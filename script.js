@@ -1,24 +1,29 @@
 const inputDisplay = document.getElementById('user-input-display');
 const storedInput = document.getElementById('stored-user-input');
-const btns = document.querySelectorAll('.btn');
-
-let storedDisplay = null;
-let display = 0;
-
-inputDisplay.innerText = display;
-storedInput.innerText = storedDisplay;
+const numberButtons = document.querySelectorAll('.number');
 
 console.log(inputDisplay);
 console.log(storedInput);
-console.log(btns);
+console.log(numberButtons);
 
-function displayUpdate() {
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-        console.log('click');
+
+function btnListener() {
+    numberButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+        updateDisplay(e);
         })
     })
 };
+
+/*---updates display to add number that was clicked. If it is the first one will update the 0 to new number---*/
+function updateDisplay(e) {
+    if (display === 0) {
+        display = e.target.innerText;
+    } else {
+    display = display + e.target.innerText;
+    currentInputDisplay();
+    }
+}
 
 /*---Basic function to evaluate what math function to use---*/
 function operate(operator, num1, num2){
@@ -53,4 +58,16 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
-displayUpdate();
+let display = 0;
+function currentInputDisplay() {
+    inputDisplay.innerText = display;
+}
+
+let storedDisplay = null;
+function currentStoredInputDisplay() {
+    storedInput.innerText = storedDisplay;
+}
+
+btnListener();
+currentInputDisplay();
+currentStoredInputDisplay();
