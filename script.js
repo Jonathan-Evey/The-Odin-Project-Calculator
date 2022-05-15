@@ -4,6 +4,8 @@ const equationOperatorDisplay = document.getElementById('equation-operator-displ
 const numberButtons = document.querySelectorAll('.number');
 const equationOperatorButtons = document.querySelectorAll('.equation-operator');
 
+
+/*---clear everything and set back to 0---*/
 function clearAll() {
     document.getElementById('clear').addEventListener('click', () => {
         display = 0;
@@ -15,6 +17,18 @@ function clearAll() {
     })
 }
 
+/*---deletes the last input from the user---*/
+function backSpace() {
+    document.getElementById('delete').addEventListener('click', () => {
+        deleteLastCharacter(display);
+        currentInputDisplay();
+    })
+}
+
+/*---remove last character from a string---*/
+function deleteLastCharacter() {
+    display = display.slice(0, -1);
+}
 
 /*---check for user interaction with number buttons/updates display on click event---*/
 function numberButtonListener() {
@@ -128,3 +142,4 @@ currentInputDisplay();
 currentStoredInputDisplay();
 currentEquationOperatorDisplay();
 clearAll();
+backSpace();
