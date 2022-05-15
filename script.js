@@ -4,7 +4,17 @@ const equationOperatorDisplay = document.getElementById('equation-operator-displ
 const numberButtons = document.querySelectorAll('.number');
 const equationOperatorButtons = document.querySelectorAll('.equation-operator');
 
-console.log(equationOperatorButtons);
+function clearAll() {
+    document.getElementById('clear').addEventListener('click', () => {
+        display = 0;
+        storedDisplay = null;
+        operatorDisplay = null;
+        currentEquationOperatorDisplay();
+        currentStoredInputDisplay();
+        currentInputDisplay();
+    })
+}
+
 
 /*---check for user interaction with number buttons/updates display on click event---*/
 function numberButtonListener() {
@@ -26,16 +36,17 @@ function updateDisplay(e) {
     }
 }
 
+/*---checks for plus minus multiply or divide clicks by user---*/
 function equationOperatorButtonListener() {
     equationOperatorButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             updateEquationOperatorDisplay(e);
             updateStoredInputDisplay();
-            console.log(operatorDisplay);
         })
     })
 };
 
+/*---updates the display to show current operation that will be run--*/
 function updateEquationOperatorDisplay(e) {
     if (e.target.innerText == '+') {
         operatorDisplay = '+'; 
@@ -51,6 +62,7 @@ function updateEquationOperatorDisplay(e) {
     }
 }
 
+/*---updates display to show what user first input---*/
 function updateStoredInputDisplay() {
     if (storedDisplay === null) {
         storedDisplay = display;
@@ -78,19 +90,19 @@ function operate(operator, num1, num2){
     };
 }
 
-/*---Basic function that returns sums two numbers---*/
+/*---returns sums two numbers---*/
 function add(num1, num2) {
     return num1 + num2;
 }
-/*---Basic function that returns sums of a number minus a number---*/
+/*---returns sums of a number minus a number---*/
 function subtract(num1, num2) {
     return num1 - num2;
 }
-/*---Basic function that returns product of two numbers---*/
+/*---returns product of two numbers---*/
 function multiply(num1, num2) {
     return num1 * num2;
 }
-/*---Basic function that product of a number divided by a number---*/
+/*---return product of a number divided by a number---*/
 function divide(num1, num2) {
     return num1 / num2;
 }
@@ -115,3 +127,4 @@ equationOperatorButtonListener();
 currentInputDisplay();
 currentStoredInputDisplay();
 currentEquationOperatorDisplay();
+clearAll();
