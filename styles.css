@@ -20,7 +20,7 @@ body {
 .screen {
     text-align: right;
     background-color: aquamarine;
-    padding: 0.5rem 0.25rem 0.25rem;
+    padding-right: 0.5rem;
     margin-bottom: 2rem;
     display: grid;
     gap: 0.5rem;
@@ -28,6 +28,15 @@ body {
     grid-template-areas:
       "stored-user-input"
       "user-input-area"
+}
+
+.stored-user-input {
+    font-size: 0.75em;
+    padding-top: 0.5rem;
+    height: 1.5rem;
+}
+.user-input-area {
+    padding-bottom: 0.25rem;
 }
 
 
