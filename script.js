@@ -7,6 +7,10 @@ const equationOperatorButtons = document.querySelectorAll('.equation-operator');
 
 function runEquation() {
     document.getElementById('equals').addEventListener('click', () => {
+        if (storedInput.innerText === '') {
+            display = display;
+            currentInputDisplay();
+        } else {
         let num1 = parseInt(display);
         let num2 = parseInt(storedDisplay);
         display = operate(operatorDisplay, num1, num2);          
@@ -15,6 +19,7 @@ function runEquation() {
         currentEquationOperatorDisplay();
         currentStoredInputDisplay();
         currentInputDisplay();
+        }
     });
 }
 
@@ -128,7 +133,11 @@ function multiply(num1, num2) {
 };
 /*---return product of a number divided by a number---*/
 function divide(num1, num2) {
+    if (num1 == 0) {
+        return "Please No"
+    } else {
     return num2 / num1;
+    }
 };
 
 let display = 0;
