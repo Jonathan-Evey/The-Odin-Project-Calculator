@@ -1,5 +1,23 @@
 
 
+
+
+function operate(operator, num1, num2){
+    if (operator === "plus") {
+        return add(num1, num2);
+    };
+    if (operator === "minus") {
+        return subtract(num1, num2);
+    };
+    if (operator === "times") {
+        return multiply(num1, num2);
+    };
+    if (operator === "divided") {
+        return divide(num1, num2);
+    };
+}
+
+
 /*---Basic function that returns sums two numbers---*/
 function add(num1, num2) {
     return num1 + num2;
