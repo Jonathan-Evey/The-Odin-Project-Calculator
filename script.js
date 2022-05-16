@@ -7,7 +7,7 @@ const equationOperatorButtons = document.querySelectorAll('.equation-operator');
 
 function runEquation() {
     document.getElementById('equals').addEventListener('click', () => {
-        if (storedInput.innerText === '') {
+        if (storedInput.innerText === '' || operatorDisplay.innerText === '') {
             display = display;
             currentInputDisplay();
         } else {
@@ -22,7 +22,6 @@ function runEquation() {
         }
     });
 }
-
 
 /*---clear everything and set back to 0---*/
 function clearAll() {
