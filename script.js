@@ -13,8 +13,8 @@ function runEquation() {
         } else {
         let num1 = parseInt(display);
         let num2 = parseInt(storedDisplay);
-        display = operate(operatorDisplay, num1, num2);          
-        storedDisplay = null;
+        display = 0;          
+        storedDisplay = operate(operatorDisplay, num1, num2);
         operatorDisplay = null;
         currentEquationOperatorDisplay();
         currentStoredInputDisplay();
@@ -72,7 +72,10 @@ function equationOperatorButtonListener() {
     equationOperatorButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             updateEquationOperatorDisplay(e);
-            updateStoredInputDisplay();
+            currentEquationOperatorDisplay();
+            if (storedDisplay === null){
+                updateStoredInputDisplay();
+            };
         })
     })
 };
@@ -91,7 +94,7 @@ function updateEquationOperatorDisplay(e) {
         operatorDisplay = '/'; 
     }
 };
-/*---updates uperdisplay to show what user first input---*/
+/*---updates upperdisplay to show what user first input---*/
 function updateStoredInputDisplay() {
     if (storedDisplay === null) {
         storedDisplay = display;
