@@ -9,22 +9,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: darkslategrey;
+    
 }
 
 .calculator-container {
     background-color: black;
     margin-top: 150px;
-    padding: 3rem 1rem 5rem 1rem;
+    padding: 3rem 1rem 6rem 1rem;
+    border-radius: 0.5rem;
 }
 
 .screen {
     position: relative;
     height: 4rem;
     text-align: right;
-    background-color: aquamarine;
+    background-color: #00cc88;
     padding-right: 0.5rem;
     display: flex;
     flex-direction: column-reverse;
+    border-radius: 0.15rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .5) inset,
+                2px 2px 5px rgba(0, 0, 0, .7) inset;
 }
 .stored-input-container {
     position: absolute;
@@ -44,18 +50,15 @@ body {
 }
 
 .user-input-display {
-    font-size: 1em;
+    font-size: 1.25em;
     padding-bottom: 0.5rem;
 }
 
-
-
-
 .button-container {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     display: grid;
     grid-template-columns: 3rem 3rem 3rem 3rem;
-    gap: .25rem;
+    gap: .4rem;
     grid-template-areas: 
       "clear clear delete divide"
       "seven eight nine multiply"
@@ -65,10 +68,40 @@ body {
 }
 .btn {
     padding: .5rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.btn.equation-operator,
+.btn.delete,
+.btn.equals {
+    background-color: #a9a9a9;
+}
+.btn.equation-operator:hover,
+.btn.delete:hover,
+.btn.equals:hover {
+    background-color: #404040;
+}
+.btn:hover {
+    cursor: pointer; 
+    scale: 1.05; 
+}
+.btn:active {
+    scale: .95;
+}
+.btn.number:hover,
+.btn.decimal:hover {
+    background-color: #a9a9a9;
 }
 .clear {
     grid-area: clear;
+    background-color: #cc6600;
 }
+
+.clear:hover {
+    background-color: #663300;
+}
+
 .delete {
     grid-area: delete;
 }
