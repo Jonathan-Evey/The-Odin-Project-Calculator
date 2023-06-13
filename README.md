@@ -1,4 +1,9 @@
 # The-Odin-Project-Calculator
+
+https://jonathan-evey.github.io/The-Odin-Project-Calculator/
+
+HTML / CSS / JavaScript
+
 Assignment
 
 1. Your calculator is going to contain functions for all of the basic math operators you typically find on simple calculators.
